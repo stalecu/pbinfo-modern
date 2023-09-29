@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/lazarus,visualstudio,visualstudiocode,emacs,vim,freepascal,c++,codeblocks,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=lazarus,visualstudio,visualstudiocode,emacs,vim,freepascal,c++,codeblocks,eclipse
 
+main
+
 ### C++ ###
 # Prerequisites
 *.d
