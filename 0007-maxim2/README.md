@@ -2,7 +2,7 @@
 Se dau 2 numere întregi.
 
 ## Cerința
-Calculaţi suma celor 2 numere date.
+Calculaţi maximul celor 2 numere date.
 
 ## Date de intrare
 Fişierul de intrare `maxim.in` conţine pe prima linie 2 numere întregi separate

@@ -1,4 +1,4 @@
-program SumaNumere;
+program Maxim2;
 
 {$mode delphi}
 
@@ -6,7 +6,7 @@ uses
     SysUtils, math;
 
 var
-  A, B, Sum: Integer;
+  A, B, MaxNum: Integer;
   TFIn, TFOut: TextFile;
 
 begin
@@ -18,10 +18,10 @@ begin
     Readln(TFIn, A, B);
     CloseFile(TFIn);
     
-    Sum := Max(A, B);
+    MaxNum := Max(A, B);
     
     Rewrite(TFOut);
-    Writeln(TFOut, Sum);
+    Writeln(TFOut, MaxNum);
     CloseFile(TFOut);
   except
     on E : Exception do 
