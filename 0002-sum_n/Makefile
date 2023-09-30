@@ -1,15 +1,37 @@
 CXX := g++
+CXXSTD = 11
+
+CXXWARNS := -Wall -Wextra -Wno-unused-variable -Wno-unused-parameter
+CXXFLAGS := -std=c++$(CXXSTD) -O2 $(CXXWARNS)
+
 FPC := fpc
-CXXFLAGS := -std=c++11 -Wall -Wextra -O2
 FPCFLAGS := -O2 -XXs -v0w -l- -Mobjpas
+
+INPUT    := input.txt
+EXPECTED := expected.txt
+DIFFOPTS := -uZa
 
 .PHONY: all cpp pas clean help
 
 MAKEFLAGS += --silent
 
-all: cpp pas check_output
+all: check_input cpp pas compare_output
 
-cpp: cpp/main
+check_input:
+	@if [ "$(INTERACTIVE)" = "1" ]; then \
+		echo "Checking if input exists..."; \
+		if [ -e "$(INPUT)" ]; then \
+			echo "The input file exists..."; \
+			if [ -s "$(INPUT)" ]; then \
+				echo "The input file is not empty!"; \
+			else \
+				echo "The input file is empty!"; \
+			fi \
+		else \
+			echo "The input file doesn't exist!"; \
+		fi; \
+	fi
+cpp: check_cpp check_input cpp/main 
 	@echo "Running C++ program:"
 	@if [ "$(INTERACTIVE)" = "1" ]; then \
 		(cd cpp && ./main) > cpp/output.txt; \
@@ -23,7 +45,7 @@ cpp: cpp/main
 	fi
 	@echo;
 
-pas: pas/main
+pas: check_pas check_input pas/main
 	@echo "Running Pascal program:"
 	@if [ "$(INTERACTIVE)" = "1" ]; then \
 		(cd pas && ./main) > pas/output.txt; \
@@ -37,17 +59,17 @@ pas: pas/main
 	fi
 	@echo;
 
-cpp/main: cpp/main.cpp input.txt
+cpp/main: cpp/main.cpp $(INPUT)
 	@echo "Compiling C++ program..."
 	$(CXX) $(CXXFLAGS) -o $@ cpp/main.cpp
 
-pas/main: pas/main.pas input.txt
+pas/main: pas/main.pas $(INPUT)
 	@echo "Compiling Pascal program..."
 	$(FPC) $(FPCFLAGS) -o$@ $<
 
 clean:
 	@echo "Cleaning..."
-	rm -f cpp/main pas/main pas/main.o cpp/output.txt pas/output.txt
+	rm cpp/main pas/main pas/main.o cpp/output.txt pas/output.txt
 
 help:
 	@echo "Available targets:"
@@ -62,20 +84,37 @@ check_cpp:
 		exit 1; \
 	fi
 
-# Check if fpc is available in the system's PATH for Pascal
 check_pas:
 	@if ! which $(FPC) > /dev/null; then \
 		echo "Error: Pascal compiler (fpc) not found in PATH"; \
 		exit 1; \
 	fi
 
-check_output:
-	@if [ -e cpp/output.txt ] && [ -e pas/output.txt ]; then \
-		if cmp -s cpp/output.txt pas/output.txt; then \
-			echo "The C++ and Pascal output files are the same!"; \
-		else \
-			echo "The C++ and Pascal output files are different!"; \
-			echo "Diff: "; \
-			diff cpp/output.txt pas/output.txt; \
-		fi; \
-	fi
+compare_output: cpp pas
+	@make compare_cpp_output
+	@echo
+	@make compare_pas_output
+
+compare_cpp_output:
+	@echo "Comparing C++ output..."
+	@if [ -e cpp/output.txt ]; then \
+        if diff $(DIFFOPTS) cpp/output.txt $(EXPECTED) &>/dev/null; then \
+            echo "The C++ output matches the expected result!"; \
+        else \
+            echo "The C++ output does not match the expected result!"; \
+            echo "Diff: "; \
+            diff $(DIFFOPTS) cpp/output.txt $(EXPECTED); \
+        fi; \
+    fi
+
+compare_pas_output:
+	@echo "Comparing Pascal output..."	
+	@if [ -e pas/output.txt ]; then \
+        if diff $(DIFFOPTS) pas/output.txt $(EXPECTED) &>/dev/null; then \
+            echo "The Pascal output matches the expected result!"; \
+        else \
+            echo "The Pascal output does not match the expected result!"; \
+            echo "Diff: "; \
+            diff $(DIFFOPTS) pas/output.txt $(EXPECTED); \
+        fi; \
+    fi

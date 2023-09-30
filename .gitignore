@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=lazarus,visualstudio,visualstudiocode,emacs,vim,freepascal,c++,codeblocks,eclipse
 
 main
+*.in
+output.txt
 
 ### C++ ###
 # Prerequisites

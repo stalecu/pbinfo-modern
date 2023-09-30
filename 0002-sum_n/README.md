@@ -2,17 +2,17 @@
 Se dau n numere naturale nenule.
 
 ## Cerința
-Calculaţi suma celor n numere date.
+Calculaţi suma celor `n` numere date.
 
 ## Date de intrare
-Programul citește de la tastatură numărul n, iar apoi n numere naturale.
+Programul citește de la tastatură numărul `n`, iar apoi `n` numere naturale.
 
 ## Date de ieşire
-Programul afișează pe prima linie a ecranului numărul S, reprezentând suma celor n numere.
+Programul afișează pe prima linie a ecranului numărul `S`, reprezentînd suma celor `n` numere.
 
 ## Restricţii şi precizări
-- 0 < n < 1000
-- cele n numere citite vor fi mai mici decât 1000
+- 0 < `n` < 1000
+- cele `n` numere citite vor fi mai mici decît 1000
 
 
 ## Exemplu:
@@ -27,11 +27,11 @@ Ieșire:
 ```
 
 # Cum se rulează
-Este destul de simplu dacă ești pe Linux. Poți folosi `make` cu următoarele
-opțiuni:
+Este destul de simplu dacă ești pe un sistem Unix. Poți folosi `make` cu
+următoarele opțiuni:
 - `make` sau `make all` compilează ambele binare, le rulează și compară
-  rezultatul (dacă nu-s egale, Makefile-ul va arăta un `diff` cu locația unde
-  diferă).
+  rezultatul (dacă nu-s egale cu datele de ieșire așteptate din `expected.txt`,
+  Makefile-ul va arăta un `diff` cu locația unde diferă).
 - `make cpp` și `make pas` compilează binarul de C++, respectiv de Pascal;
 - `make clean` curăță executabilele și alte fișiere intermediare
 - `make help` arată un mic ajutor.
@@ -46,5 +46,8 @@ pentru că ești pe Mac), înlocuiește cu `clang++` în Makefile la `CXX` sau
 rulează în terminal cu `CXX=clang++ make`.
 
 Dacă vrei să rulezi executabilul pe același set de date (precum exemplul), ai la
-dispoziție fișierul `input.txt`. Dacă totuși vrei să rulezi programul în mod
-interactiv, folosește `INTERACTIVE=1 make`.
+dispoziție fișierul `input.txt` (care trebuie să existe și să nu fie gol dacă nu
+rulezi interactiv). În cazul în care vrei să rulezi programul în mod interactiv,
+folosește `INTERACTIVE=1 make <comanda>`. În ambele cazuri, este necesar să
+existe `expected.txt` pentru a putea verifica programul (pînă la urmă, rezolvi
+aceeași problemă, nu? ;-))

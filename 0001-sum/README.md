@@ -33,9 +33,17 @@ opțiuni:
   rezultatul (dacă nu-s egale, Makefile-ul va arăta un `diff` cu locația unde
   diferă).
 - `make cpp` și `make pas` compilează binarul de C++, respectiv de Pascal;
-- `make clean` curăță executabilele, alte fișiere intermediare și `sum.out`
-  (pentru că-l putem regenera).
+- `make clean` curăță executabilele, alte fișiere intermediare, `sum.in` și `sum.out`
+  (pentru că le putem regenera).
 - `make help` arată un mic ajutor.
+
+Trebuie ca fișierele `input.txt` (ce conține, evident, datele de intrare) și
+`expected.txt` (ce date de ieșire ar trebui să ai) să existe și să nu fie goale.
+Astfel, poți testa programul tău cu date de intrare/ieșire din problemă
+independent de limbajul folosit. Makefile-ul va copia automat fișierul
+`input.txt` în `sum.in`, deci nu trebuie să te îngrijorezi că nu va rula
+programul, atîta timp cît îl rulezi folosind `make` sau `make cpp` sau `make
+pas`.
 
 Alternativ, poți să imporți aceste fișiere în editorul tău preferat (Lazarus
 pentru Free Pascal, ce altceva folosești tu pentru C++). Probabil există setări
