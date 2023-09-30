@@ -86,7 +86,7 @@ Este mai simplu procesul de a crea un proiect aici. Pentru că nu ai aplicații 
 Dacă faci Pascal la școală, cel mai probabil profesorul/profesoara tău/ta se așteaptă la Turbo Pascal (și, evident, să ruleze programele în acel editor). Nu te îngrijora, Free Pascal poate rula în mod de compatibilitate Turbo Pascal cu doar o singură directivă adăugată după `program`:
 
 ```pascal
-${mode TP}
+{$mode tp}
 ```
 
 Alternativ, poți modifica proiectul în sine să îți schimbe dialectul în modul de compatibilitate Turbo Pascal.
