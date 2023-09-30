@@ -1,5 +1,7 @@
 program MaxMin;
 
+{$mode objfpc}
+
 uses
   math;
 
