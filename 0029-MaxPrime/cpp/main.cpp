@@ -1,6 +1,7 @@
 #include <iostream>
 
 /* ======= <function> ========== */
+<<<<<<< HEAD
 bool is_prime(unsigned int num) {
   if (num <= 3)
     return num > 1;
@@ -28,6 +29,32 @@ void sub(int n, int &a, int &b) {
     }
   }
 }
+=======
+#include <algorithm>
+#include <string>
+
+bool is_prime(unsigned int num) {
+  if (num <= 3) return num > 1;
+  if (num % 2 == 0 || num % 3 == 0) return false;
+    
+  for (unsigned int i = 5; i * i <= num; i += 6)
+    if (num % i == 0 || num % (i + 2) == 0) return false;
+
+  return true;
+}
+
+void sub(int n, int &a, int &b) {
+    a = n - 1;
+    while (!is_prime(a)) {
+      a--;
+    }
+    b = a - 1;
+    while (!is_prime(b)) {
+      b--;
+    }
+}
+
+>>>>>>> 514ec8b ([0029] MaxPrime)
 /* ====== </function> ========== */
 
 int main() {

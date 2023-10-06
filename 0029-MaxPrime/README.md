@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [Cifre_Zero](https://www.pbinfo.ro/probleme/29) (#29)
 ## Cerinţa
 
@@ -17,11 +18,30 @@ două numere naturale prime mai mici decât n.
 
 Dacă n=28, apelul subprogramului va furniza prin parametrul a valoarea 23, iar
 prin b valoarea 19.
+=======
+# [MaxPrime](https://www.pbinfo.ro/probleme/29) (#29  )
+## Cerinţa
+Să se scrie o funcție C++ care, pentru un număr natural n transmis ca parametru,
+determină și întoarce prin intermediul unor parametri de ieșire cele mai mari
+două numere naturale prime mai mici decât n.
+
+## Restricţii şi precizări
+- numele funcției va fi sub
+- funcția va avea exact trei parametri, în această ordine:
+  - primul parametru, n, reprezintă un număr natural, 5 ≤ n < 1000000000
+  - a și b sunt parametrii prin care funcția va întoarce cele două valori căutate
+- parametrii a și b respectă relația a>b
+
+>>>>>>> 514ec8b ([0029] MaxPrime)
 ## Important
 
 Soluţia propusă va conţine doar definiţia funcţiei cerute. Prezenţa în soluţie a
 altor instrucţiuni poate duce erori de compilare sau de execuţie care vor avea
+<<<<<<< HEAD
 ca efect depunctarea soluţiei. 
+=======
+ca efect depunctarea soluţiei.
+>>>>>>> 514ec8b ([0029] MaxPrime)
 
 # Cum se rulează
 Este destul de simplu dacă ești pe un sistem Unix. Poți folosi `make` cu
