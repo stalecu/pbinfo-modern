@@ -8,7 +8,8 @@ Să se afişeze lista prefixelor şi lista sufixelor cuvântului dat.
 Programul citeşte de la tastatură un şir de caractere.
 
 ## Date de ieşire
-Programul afişează pe ecran lista prefixelor, câte unul pe un rând al ecranului, şi lista sufixelor, câte unul pe un rând al ecranului.
+Programul afişează pe ecran lista prefixelor, câte unul pe un rând al ecranului,
+şi lista sufixelor, câte unul pe un rând al ecranului.
 
 ## Restricţii şi precizări
 - şirul de caractere citit va conţine cel mult 10 litere mici ale alfabetului englez

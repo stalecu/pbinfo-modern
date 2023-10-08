@@ -41,7 +41,7 @@ rulează în terminal cu `CXX=clang++ make`.
 
 Atenție: spre deosebire de alte probleme, aici nu mai există modul `INTERACTIVE`
 pentru că nu citesc un N aici, deci nu are cum să se oprească programul. Am
-lăsat un script de Perl (ai nevoie de `Math::Prime::Util` instalat) pentru a
-genera datele de intrare și dacă numerele-s prime sau nu. Trebuie copiată doar
-funcția efectivă, restul e pentru a testa programul. Cum problema cere doar
-soluție în C++, clar că n-o să fac soluție de Pascal aici (chiar dacă aș putea).
+lăsat un script de Perl pentru a genera datele de intrare și pentru a calcula
+suma cifrelor acelui număr. Trebuie copiată doar funcția efectivă, restul e
+pentru a testa programul. Cum problema cere doar soluție în C++, clar că n-o să
+fac soluție de Pascal aici (chiar dacă aș putea).
